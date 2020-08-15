@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionaries &#8212; scrollunlock 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Objects and classes" href="python_objects.html" />
+    <link rel="prev" title="Christmas Tree" href="python_xmas_tree.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="dictionaries">
+<h1>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>It is time for you to get to know useful data structure - dictionary. Dictionaries are used to store data as a key and value (just like in encyclopedia - you have entry and a description attached to it). Imagine you want to store information about library users. For every reader you have: name, surname, birthdate, birthplace, id number.
+In python such a structure would look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reader</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Kasia&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;surname&#39;</span><span class="p">:</span> <span class="s1">&#39;Kowalska&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;date_of_birth&#39;</span><span class="p">:</span> <span class="s1">&#39;19-01-1985&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;place_of_birth&#39;</span><span class="p">:</span> <span class="s1">&#39;Wrocław&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;readers_nr&#39;</span><span class="p">:</span> <span class="s1">&#39;ASDF1234&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example <code class="docutils literal notranslate"><span class="pre">name</span></code> is a key (dictionary entry), witch assigned value <code class="docutils literal notranslate"><span class="pre">Kasia</span></code> (entry description).
+Try to create your own user entry.</p>
+<p>Nowoczesna Biblioteka Raczyńskich in Poznan wants to send its users birthday wishes. For the library worker to know when you were born it only takes to check:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">reader</span><span class="p">[</span><span class="s1">&#39;date_of_birth&#39;</span><span class="p">])</span>
+<span class="s1">&#39;19-01-1985&#39;</span>
+</pre></div>
+</div>
+<p>The clerk recalled: to send you birthday wishes he needs your address aswell. You can add them to your reader’s data in such manner:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reader</span><span class="p">[</span><span class="s1">&#39;address&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ul. Marszałkowska 1, 01-234 Warszawa&#39;</span>
+</pre></div>
+</div>
+<p>You can easily change the value in dictionary, if you make any mistake- it only takes to rewrite existing value:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reader</span><span class="p">[</span><span class="s1">&#39;place_of_birth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Łódź&#39;</span>
+</pre></div>
+</div>
+<p>To print to screen whole dictionary, we can use loop <code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">reader</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Using ‘for’ loop on dictionary allows to iterate though every single key. <code class="docutils literal notranslate"><span class="pre">reader[key]</span></code> gives access to the value under given key.
+Beware, the order of records is random, dictionaries do not have assigned order. If you want to use ordered structures use lists.</p>
+</div>
+<div class="section" id="task-1">
+<h2>Task 1<a class="headerlink" href="#task-1" title="Permalink to this headline">¶</a></h2>
+<p>Description: Library system contains author data assigned to every book. Library clerk checks book author while putting books on shelf in alphabetic order.
+Try to write down pairs: book –&gt; author for every record in dictionary, used to store library information.</p>
+<p>EXAMPLE (one line output):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Introduction to Algorithms&#39;</span> <span class="o">--&gt;</span> <span class="s1">&#39;Thomas H. Cormen&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">title_to_author</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;Structure and Interpretation of Computer Programs&#39;</span> <span class="p">:</span> <span class="s1">&#39;Harold Abelson&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Introduction to Algorithms&#39;</span> <span class="p">:</span> <span class="s1">&#39;Thomas H. Cormen&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;The C Programming Language&#39;</span> <span class="p">:</span> <span class="s1">&#39;Brian W. Kernighan&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;The Pragmatic Programmer: From Journeyman to Master&#39;</span> <span class="p">:</span> <span class="s1">&#39;Andrew Hunt&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Art of Computer Programming&#39;</span> <span class="p">:</span> <span class="s1">&#39;Donald Ervin Knuth&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Design Patterns: Elements of Reusable Object-Oriented Software&#39;</span> <span class="p">:</span> <span class="s1">&#39;Erich Gamma&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Artificial Intelligence: A Modern Approach&#39;</span> <span class="p">:</span> <span class="s1">&#39;Stuart Russell&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Introduction to the Theory of Computation&#39;</span> <span class="p">:</span> <span class="s1">&#39;Michael Sipser&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Code Complete&#39;</span> <span class="p">:</span> <span class="s1">&#39;Steve McConnell&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;The Mythical Man-Month: Essays on Software Engineering&#39;</span> <span class="p">:</span> <span class="s1">&#39;Frederick P. Brooks Jr.&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-2">
+<h2>Task 2<a class="headerlink" href="#task-2" title="Permalink to this headline">¶</a></h2>
+<p>You can help the clerk to find out on which shelf given book should be putted. In this very moment the library store data about its books in two dictionaries:: <code class="docutils literal notranslate"><span class="pre">title_to_author</span></code> and <code class="docutils literal notranslate"><span class="pre">title_to_shelf_number</span></code>. We need to join them.
+After join there will be one dictionary, containing information about shelf and author of a book.
+These information will be stored in tuplets of such elements (shelf number, author’s full name)</p>
+<p>Merge two dictionaries <code class="docutils literal notranslate"><span class="pre">title_to_author</span></code> and <code class="docutils literal notranslate"><span class="pre">title_to_shelf_number</span></code> in one, stored in variable <code class="docutils literal notranslate"><span class="pre">title_to_book_record</span></code>:</p>
+<ul class="simple">
+<li><p>The key in dictionary <code class="docutils literal notranslate"><span class="pre">title_to_author</span></code> is “book’s title”, and value is “main author’s name”</p></li>
+<li><p>The key in dictionary <code class="docutils literal notranslate"><span class="pre">title_to_shelf_number</span></code> is “book’s title”, and value is “shelf number”</p></li>
+<li><p>The key in output dictionary <code class="docutils literal notranslate"><span class="pre">title_to_book_record</span></code> should be “book’s title”, and value should contain 2 elements tuple
+(“main author’s name”, “shelf number”)</p></li>
+</ul>
+<p>EXAMPLE:</p>
+<p>For key <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">C</span> <span class="pre">Programming</span> <span class="pre">Language</span></code> dictionary <code class="docutils literal notranslate"><span class="pre">title_to_book_record</span></code> should return a tuplet:
+<code class="docutils literal notranslate"><span class="pre">('Brian</span> <span class="pre">W.</span> <span class="pre">Kernighan',</span> <span class="pre">23)</span></code>. In Python interpreter:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">title_to_book_record</span><span class="p">[</span><span class="s1">&#39;The C Programming Language&#39;</span><span class="p">]</span>
+<span class="go">(&#39;Brian W. Kernighan&#39;, 23)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">title_to_author</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;Structure and Interpretation of Computer Programs&#39;</span> <span class="p">:</span> <span class="s1">&#39;Harold Abelson&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Introduction to Algorithms&#39;</span> <span class="p">:</span> <span class="s1">&#39;Thomas H. Cormen&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;The C Programming Language&#39;</span> <span class="p">:</span> <span class="s1">&#39;Brian W. Kernighan&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;The Pragmatic Programmer: From Journeyman to Master&#39;</span> <span class="p">:</span> <span class="s1">&#39;Andrew Hunt&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Art of Computer Programming&#39;</span> <span class="p">:</span> <span class="s1">&#39;Donald Ervin Knuth&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Design Patterns: Elements of Reusable Object-Oriented Software&#39;</span> <span class="p">:</span> <span class="s1">&#39;Erich Gamma&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Artificial Intelligence: A Modern Approach&#39;</span> <span class="p">:</span> <span class="s1">&#39;Stuart Russell&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Introduction to the Theory of Computation&#39;</span> <span class="p">:</span> <span class="s1">&#39;Michael Sipser&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Code Complete&#39;</span> <span class="p">:</span> <span class="s1">&#39;Steve McConnell&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;The Mythical Man-Month: Essays on Software Engineering&#39;</span> <span class="p">:</span> <span class="s1">&#39;Frederick P. Brooks Jr.&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">title_to_shelf_number</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;Structure and Interpretation of Computer Programs&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s1">&#39;Introduction to Algorithms&#39;</span> <span class="p">:</span> <span class="mi">34</span><span class="p">,</span>
+  <span class="s1">&#39;The C Programming Language&#39;</span> <span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+  <span class="s1">&#39;The Pragmatic Programmer: From Journeyman to Master&#39;</span> <span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+  <span class="s1">&#39;Art of Computer Programming&#39;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+  <span class="s1">&#39;Design Patterns: Elements of Reusable Object-Oriented Software&#39;</span> <span class="p">:</span> <span class="mi">586</span><span class="p">,</span>
+  <span class="s1">&#39;Artificial Intelligence: A Modern Approach&#39;</span> <span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+  <span class="s1">&#39;Introduction to the Theory of Computation&#39;</span> <span class="p">:</span> <span class="mi">98</span><span class="p">,</span>
+  <span class="s1">&#39;Code Complete&#39;</span> <span class="p">:</span> <span class="mi">77</span><span class="p">,</span>
+  <span class="s1">&#39;The Mythical Man-Month: Essays on Software Engineering&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-3">
+<h2>Task 3<a class="headerlink" href="#task-3" title="Permalink to this headline">¶</a></h2>
+<p>If you would like to find books particular edition by ISBN, you can use dictionary as below.</p>
+<p>Print out dictionary’s content in such manner:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;TITLE&#39;</span> <span class="n">by</span> <span class="s1">&#39;AUTOR&#39;</span> <span class="ow">is</span> <span class="n">on</span> <span class="n">shelf</span> <span class="s1">&#39;NUMBER_OF_SHELF&#39;</span> <span class="p">(</span><span class="n">ISBN</span><span class="p">:</span> <span class="s1">&#39;NUMBER_OF_ISBN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The key in dictionary <code class="docutils literal notranslate"><span class="pre">books</span></code> is integer “ISBN” , and value is THREE ELEMENTS TUPLE (“book’s title”, “main author’s name”, “shelf number”)</p>
+<p>EXAMPLE (one line output):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Introduction</span> <span class="n">to</span> <span class="n">Algorithms</span> <span class="n">by</span> <span class="n">Thomas</span> <span class="n">H</span><span class="o">.</span> <span class="n">Cormen</span> <span class="ow">is</span> <span class="n">on</span> <span class="n">shelf</span> <span class="mi">34</span> <span class="p">(</span><span class="n">ISBN</span><span class="p">:</span> <span class="mi">0262032937</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">books</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;0262510871&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Structure and Interpretation of Computer Programs&#39;</span><span class="p">,</span> <span class="s1">&#39;Harold Abelson&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+  <span class="s1">&#39;0262032937&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Introduction to Algorithms&#39;</span><span class="p">,</span> <span class="s1">&#39;Thomas H. Cormen&#39;</span><span class="p">,</span> <span class="mi">34</span><span class="p">),</span>
+  <span class="s1">&#39;0131103628&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;The C Programming Language&#39;</span><span class="p">,</span> <span class="s1">&#39;Brian W. Kernighan&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">),</span>
+  <span class="s1">&#39;020161622X&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;The Pragmatic Programmer: From Journeyman to Master&#39;</span><span class="p">,</span> <span class="s1">&#39;Andrew Hunt&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+  <span class="s1">&#39;0201485419&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Art of Computer Programming&#39;</span><span class="p">,</span> <span class="s1">&#39;Donald Ervin Knuth&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+  <span class="s1">&#39;0201633612&#39;</span> <span class="p">:</span> <span class="p">(</span>
+    <span class="s1">&#39;Design Patterns: Elements of Reusable Object-Oriented Software&#39;</span><span class="p">,</span> <span class="s1">&#39;Erich Gamma&#39;</span><span class="p">,</span> <span class="mi">586</span><span class="p">),</span>
+  <span class="s1">&#39;0130803022&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Artificial Intelligence: A Modern Approach&#39;</span><span class="p">,</span> <span class="s1">&#39;Stuart Russell&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>
+  <span class="s1">&#39;0534950973&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Introduction to the Theory of Computation&#39;</span><span class="p">,</span> <span class="s1">&#39;Michael Sipser&#39;</span><span class="p">,</span> <span class="mi">98</span><span class="p">),</span>
+  <span class="s1">&#39;0735619670&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Code Complete&#39;</span><span class="p">,</span> <span class="s1">&#39;Steve McConnell&#39;</span><span class="p">,</span> <span class="mi">77</span><span class="p">),</span>
+  <span class="s1">&#39;0201835959&#39;</span> <span class="p">:</span> <span class="p">(</span>
+    <span class="s1">&#39;The Mythical Man-Month: Essays on Software Engineering&#39;</span><span class="p">,</span> <span class="s1">&#39;Frederick P. Brooks Jr.&#39;</span><span class="p">,</span> <span class="mi">3</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="additional-task">
+<h2>Additional task<a class="headerlink" href="#additional-task" title="Permalink to this headline">¶</a></h2>
+<p>Fill the body of method <code class="docutils literal notranslate"><span class="pre">find_by_isbn_part</span></code>, so it would return all books’ titles matching part of given ISBN.
+The key in dictionary <code class="docutils literal notranslate"><span class="pre">books</span></code> is <code class="docutils literal notranslate"><span class="pre">ISBN</span></code>, and value is THREE ELEMENTS TUPLE:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s2">&quot;book&#39;s title&quot;</span><span class="p">,</span> <span class="s2">&quot;main author&#39;s name&quot;</span><span class="p">,</span> <span class="s2">&quot;shelf number&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Running this script will execute test function, that will verify if the method works properly and output the result to the terminal.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">books</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;0262510871&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Structure and Interpretation of Computer Programs&#39;</span><span class="p">,</span> <span class="s1">&#39;Harold Abelson&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+  <span class="s1">&#39;0262032937&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Introduction to Algorithms&#39;</span><span class="p">,</span> <span class="s1">&#39;Thomas H. Cormen&#39;</span><span class="p">,</span> <span class="mi">34</span><span class="p">),</span>
+  <span class="s1">&#39;0131103628&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;The C Programming Language&#39;</span><span class="p">,</span> <span class="s1">&#39;Brian W. Kernighan&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">),</span>
+  <span class="s1">&#39;020161622X&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;The Pragmatic Programmer: From Journeyman to Master&#39;</span><span class="p">,</span> <span class="s1">&#39;Andrew Hunt&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+  <span class="s1">&#39;0201485419&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Art of Computer Programming&#39;</span><span class="p">,</span> <span class="s1">&#39;Donald Ervin Knuth&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+  <span class="s1">&#39;0201633612&#39;</span> <span class="p">:</span> <span class="p">(</span>
+    <span class="s1">&#39;Design Patterns: Elements of Reusable Object-Oriented Software&#39;</span><span class="p">,</span> <span class="s1">&#39;Erich Gamma&#39;</span><span class="p">,</span> <span class="mi">586</span><span class="p">),</span>
+  <span class="s1">&#39;0130803022&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Artificial Intelligence: A Modern Approach&#39;</span><span class="p">,</span> <span class="s1">&#39;Stuart Russell&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>
+  <span class="s1">&#39;0534950973&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Introduction to the Theory of Computation&#39;</span><span class="p">,</span> <span class="s1">&#39;Michael Sipser&#39;</span><span class="p">,</span> <span class="mi">98</span><span class="p">),</span>
+  <span class="s1">&#39;0735619670&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Code Complete&#39;</span><span class="p">,</span> <span class="s1">&#39;Steve McConnell&#39;</span><span class="p">,</span> <span class="mi">77</span><span class="p">),</span>
+  <span class="s1">&#39;0201835959&#39;</span> <span class="p">:</span> <span class="p">(</span>
+    <span class="s1">&#39;The Mythical Man-Month: Essays on Software Engineering&#39;</span><span class="p">,</span> <span class="s1">&#39;Frederick P. Brooks Jr.&#39;</span><span class="p">,</span> <span class="mi">3</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>CORRECT THE FUNCTION <code class="docutils literal notranslate"><span class="pre">find_by_isbn_part</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_by_isbn_part</span><span class="p">(</span><span class="n">books</span><span class="p">,</span> <span class="n">isbn_part</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># HINTS:</span>
+    <span class="c1">#  - user for loop</span>
+    <span class="c1">#  - isbn_part in isbn is a condition that verifies if isbn contains isbn_part</span>
+    <span class="c1">#  - adding elements to list, where x is a list and e is an element to add: x.append(e)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="c1"># DO NOT ALTER</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">books</span><span class="p">):</span>
+    <span class="n">single_test</span><span class="p">(</span><span class="n">books</span><span class="p">,</span> <span class="s1">&#39;020&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;The Pragmatic Programmer: From Journeyman to Master&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;Art of Computer Programming&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;Design Patterns: Elements of Reusable Object-Oriented Software&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;The Mythical Man-Month: Essays on Software Engineering&#39;</span><span class="p">])</span>
+    <span class="n">single_test</span><span class="p">(</span><span class="n">books</span><span class="p">,</span> <span class="s1">&#39;18&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;The Mythical Man-Month: Essays on Software Engineering&#39;</span><span class="p">])</span>
+    <span class="n">single_test</span><span class="p">(</span><span class="n">books</span><span class="p">,</span> <span class="s1">&#39;22&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;The Pragmatic Programmer: From Journeyman to Master&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;Artificial Intelligence: A Modern Approach&#39;</span><span class="p">])</span>
+    <span class="n">single_test</span><span class="p">(</span><span class="n">books</span><span class="p">,</span> <span class="s1">&#39;0735619670&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Code Complete&#39;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">single_test</span><span class="p">(</span><span class="n">books</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">expected_output</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">find_by_isbn_part</span><span class="p">(</span><span class="n">books</span><span class="p">,</span> <span class="nb">input</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">set</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">set</span><span class="p">(</span><span class="n">expected_output</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">expected_output</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span>
+          <span class="s2">&quot;WRONG! FOR &#39;&quot;</span> <span class="o">+</span> <span class="nb">input</span> <span class="o">+</span>
+          <span class="s2">&quot;&#39; RESULT IS: &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="o">+</span>
+          <span class="s2">&quot;&#39;, EXPECTED: &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">expected_output</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OK! FOR &#39;&quot;</span> <span class="o">+</span> <span class="nb">input</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
+
+<span class="n">test</span><span class="p">(</span><span class="n">books</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">scrollunlock</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_quickstart.html">Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_xmas_tree.html">Christmas Tree</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dictionaries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#task-1">Task 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#task-2">Task 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#task-3">Task 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-task">Additional task</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python_objects.html">Objects and classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_import.html">Multiple Files</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="python_xmas_tree.html" title="previous chapter">Christmas Tree</a></li>
+      <li>Next: <a href="python_objects.html" title="next chapter">Objects and classes</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, vicky jadhav.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/python_dictionaries.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

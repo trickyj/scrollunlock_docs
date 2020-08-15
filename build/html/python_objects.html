@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects and classes &#8212; scrollunlock 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Multiple Files" href="python_import.html" />
+    <link rel="prev" title="Dictionaries" href="python_dictionaries.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="objects-and-classes">
+<h1>Objects and classes<a class="headerlink" href="#objects-and-classes" title="Permalink to this headline">¶</a></h1>
+<p>In fact, this chapter could be the subject of a series of workshops, but we will focus on the most
+basic things.</p>
+<div class="section" id="every-value-is-an-object">
+<h2>Every value is an object<a class="headerlink" href="#every-value-is-an-object" title="Permalink to this headline">¶</a></h2>
+<p>Everything that we have called a value until now can be called <em>an object</em> in the world of Python. We saw it in the
+example of integers, when <code class="xref py py-func docutils literal notranslate"><span class="pre">help()</span></code> printed for us dozens of additional lines of information about
+<code class="xref py py-func docutils literal notranslate"><span class="pre">int()</span></code>.</p>
+</div>
+<div class="section" id="every-object-has-a-class">
+<h2>Every object has a class<a class="headerlink" href="#every-object-has-a-class" title="Permalink to this headline">¶</a></h2>
+<p>The class is the type of an object.
+To know what is the class of an object, simply use the function <code class="xref py py-func docutils literal notranslate"><span class="pre">type()</span></code>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="go">&lt;class &#39;float&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;spam eggs&quot;</span><span class="p">)</span>
+<span class="go">&lt;class &#39;str&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">&lt;class &#39;tuple&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">([])</span>
+<span class="go">&lt;class &#39;list&#39;&gt;</span>
+</pre></div>
+</div>
+<p>We have talked about classes you can see here earlier: <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p>
+<p>When we use numbers in our program, we expect that it will behave like a number - we rely on our
+intuition.</p>
+<p>However, Python has to know exactly what it means to be a number, e.g., what should happen when we
+sum up two numbers and what when we divide them. The class <code class="docutils literal notranslate"><span class="pre">int</span></code> provides all this information and
+even more.</p>
+<p>By using <code class="xref py py-func docutils literal notranslate"><span class="pre">help()</span></code> , check what the class <code class="docutils literal notranslate"><span class="pre">str</span></code> gives us. Here we give just a few interesting
+features:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">)</span>
+<span class="go">Help on method_descriptor:</span>
+
+<span class="go">lower(...)</span>
+<span class="go">    Return a copy of the string converted to lowercase.</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">)</span>
+<span class="go">Help on method_descriptor:</span>
+
+<span class="go">upper(...)</span>
+<span class="go">    Return a copy of the string converted to uppercase.</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">ljust</span><span class="p">)</span>
+<span class="go">Help on method_descriptor:</span>
+
+<span class="go">ljust(...)</span>
+<span class="go">    Return a left-justified string of length width.</span>
+
+<span class="go">    Padding is done using the specified fill character (default is a space).</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">center</span><span class="p">)</span>
+<span class="go">Help on method_descriptor:</span>
+
+<span class="go">center(...)</span>
+<span class="go">    Return a centered string of length width.</span>
+
+<span class="go">    Padding is done using the specified fill character (default is a space).</span>
+</pre></div>
+</div>
+<p>All these are operations that each string can do. We can get to them by using dots and calling the
+function:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Ala&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">&#39;ALA&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="go">&#39;ala&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="go">&#39;   Ala   &#39;</span>
+</pre></div>
+</div>
+<p>And one more important function of a class - it can create a new object of the type it describes. This is called
+called “an instance” of a class:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">()</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">()</span>
+<span class="go">&#39;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">()</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">tuple</span><span class="p">()</span>
+<span class="go">()</span>
+</pre></div>
+</div>
+<p>So an instance is a new, fresh, value of the type described by the class.</p>
+<p>In summary, we’ve looked at the classes <code class="xref py py-func docutils literal notranslate"><span class="pre">int()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">tuple()</span></code> and
+<code class="xref py py-func docutils literal notranslate"><span class="pre">list()</span></code>. To find out from which class is the value (object), we use the function
+<code class="xref py py-func docutils literal notranslate"><span class="pre">type()</span></code>. To create an instance of a class (a new object), we call the class like call
+a function, by using parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>. For instance:
+<code class="docutils literal notranslate"><span class="pre">int()</span></code>.</p>
+</div>
+<div class="section" id="define-classes">
+<h2>Define classes<a class="headerlink" href="#define-classes" title="Permalink to this headline">¶</a></h2>
+<p>Classes like <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">str</span></code> are already known to Python, but we can create our own classes to
+customize their behavior. This is called defining a class.</p>
+<p>You can define your class as easy as you can define a function. In fact, a class is
+basically nothing but a group of functions. Lets define a class named <code class="docutils literal notranslate"><span class="pre">Dog</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Woof! Woof!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Classes begin with the word <code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code>, after which we give the name of the new class.
+The <code class="docutils literal notranslate"><span class="pre">(object)</span></code> indicates that our new type <code class="docutils literal notranslate"><span class="pre">Dog</span></code> is a specific sub-type of <code class="docutils literal notranslate"><span class="pre">object</span></code>.
+That is, instances of our class, i.e. values created from it, will be of the type <code class="docutils literal notranslate"><span class="pre">Dog</span></code> but
+also of the more general type <code class="docutils literal notranslate"><span class="pre">object</span></code>.</p>
+<p>Actually this is what we said that every value is an object.
+Indeed, each class is a specialization of <code class="docutils literal notranslate"><span class="pre">object</span></code> in Python. Hence, every value always has <code class="docutils literal notranslate"><span class="pre">object</span></code>
+as most general type.</p>
+<p>However, it is worth to know that every function in the class must have at least one argument. Its
+value is an object from which we have called this function (that is to say the object placed before
+the dot). This first argument should be called <code class="docutils literal notranslate"><span class="pre">self</span></code> by convention. In our example we have one function
+called <code class="docutils literal notranslate"><span class="pre">bark</span></code> (as you can see it accepts exacly one argument), lets test haw it works:</p>
+<p>This argument can be named as you wish, but the
+<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#function-and-method-arguments">most widespread convention</a>
+is to call it <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
+</div>
+<div class="section" id="attributes-of-objects">
+<h2>Attributes of objects<a class="headerlink" href="#attributes-of-objects" title="Permalink to this headline">¶</a></h2>
+<p>Besides methods (functions defined inside class) the objects can also have attributes:</p>
+<p>Sometimes we want for every object of the class to have an attribute, such as every dog should have a
+name. We can add this requirement by adding a function with a special name <code class="docutils literal notranslate"><span class="pre">__init__</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Woof! Woof!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In function <code class="docutils literal notranslate"><span class="pre">__init__</span></code> we have assigned a value to new attribute <code class="docutils literal notranslate"><span class="pre">name</span></code> on <code class="docutils literal notranslate"><span class="pre">self</span></code>. As mentioned
+eariler <code class="docutils literal notranslate"><span class="pre">self</span></code> is a actual object of class <code class="docutils literal notranslate"><span class="pre">Dog</span></code>. Now we can use this attribute in other methods:</p>
+<p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">__init__()</span></code> function is called during the creation of an object.
+We call this special function a constructor, because it helps to build the object.
+In this example it accepts two arguments: <code class="docutils literal notranslate"><span class="pre">self</span></code> and <code class="docutils literal notranslate"><span class="pre">name</span></code>, but when we create
+an instance of class <code class="docutils literal notranslate"><span class="pre">Dog</span></code> we need to provide only <code class="docutils literal notranslate"><span class="pre">name</span></code> arguemnt. <code class="docutils literal notranslate"><span class="pre">self</span></code> is
+always filled automatically by Python.</p>
+</div>
+<div class="section" id="inheritance">
+<h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h2>
+<p>In previous chapter we created a <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class that was subtype of <code class="docutils literal notranslate"><span class="pre">object</span></code>, but this is
+not the only possible case. We can for example say that that <code class="docutils literal notranslate"><span class="pre">Dog</span></code> is also an <code class="docutils literal notranslate"><span class="pre">Animal</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Woof! </span><span class="si">%s</span><span class="s2">! Woof!&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,)</span>
+</pre></div>
+</div>
+<p>Here we have created new class, <code class="docutils literal notranslate"><span class="pre">Animal</span></code>, that inherits from <code class="docutils literal notranslate"><span class="pre">object</span></code>. <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class now
+inherits from <code class="docutils literal notranslate"><span class="pre">Animal</span></code>. In other terms:</p>
+<ul class="simple">
+<li><p>every Animal is an object</p></li>
+<li><p>every Dog is an Animal and every Dog is an object</p></li>
+</ul>
+<p>This way we can put some general behaviour in <code class="docutils literal notranslate"><span class="pre">Animal</span></code> class, like walking, and leave dog
+specific behaviour in <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">distance</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Run </span><span class="si">%s</span><span class="s2"> meters.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">distance</span><span class="p">,)</span>
+</pre></div>
+</div>
+<p>Method <code class="docutils literal notranslate"><span class="pre">run</span></code> will be available in all subtypes of <code class="docutils literal notranslate"><span class="pre">Animal</span></code> (including <code class="docutils literal notranslate"><span class="pre">Dog</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scooby</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Scooby&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scooby</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">scrollunlock</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_quickstart.html">Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_xmas_tree.html">Christmas Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Objects and classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#every-value-is-an-object">Every value is an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#every-object-has-a-class">Every object has a class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#define-classes">Define classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#attributes-of-objects">Attributes of objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inheritance">Inheritance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python_import.html">Multiple Files</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="python_dictionaries.html" title="previous chapter">Dictionaries</a></li>
+      <li>Next: <a href="python_import.html" title="next chapter">Multiple Files</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, vicky jadhav.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/python_objects.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
