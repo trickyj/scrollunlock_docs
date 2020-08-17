@@ -3,26 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to scrollunlock's documentation!
+Welcome to scrollunlock's doc's!
 ========================================
 
-DEMO 2 
-^^^^^^
-.. code-block:: sh
-
-    print 'hello'
-    >> hello
-
+Docker basics - 
+---------------
 .. toctree::
    :maxdepth: 2
-   :caption: Guide:
 
    install
+   install2
    
    
 
-Indices and tables
-==================
+Python Basics -
+---------------
 
 * :ref:`genindex`
 * :ref:`modindex`

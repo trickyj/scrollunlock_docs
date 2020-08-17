@@ -1,6 +1,7 @@
-===========================
-Getting started with Docker
-===========================
+
+==============
+Install Docker
+==============
 
 I am using MAC machine so basically, I downloaded the .dmg package and installed it on my machine. 
 you can download and install Docker from this link - (https://docs.docker.com/desktop/)
@@ -10,30 +11,29 @@ Signup on Docker Hub
 
 Sign up / Login on - https://hub.docker.com/
 
-
 Demo 1
-------
+======
 
 In this demo I am pulling the Ubuntu image from command line running the same. 
 
-Command to pull the docker image:
-.. code-block:: sh
+Command to pull the docker image::
+
     docker pull ubuntu
 
-Command to Search for Images which you have pulled so far:
-.. code-block:: sh
+Command to Search for Images which you have pulled so far::
+
     docker images
 
-Command to search docker containers:
-.. code-block:: sh
+Command to search docker containers::
+
     docker search ubuntu
 
-Command to Run docker image:
-.. code-block:: sh
+Command to Run docker image::
+
     docker run -i -t ubuntu /bin/bash
 
-Command to search the running docker containers:
-.. code-block:: sh
+Command to search the running docker containers::
+
     docker ps
 
 
@@ -70,9 +70,6 @@ will manage the task without any problem :).
 
 
 .. _tools:
-
-Tools
-=====
 
 Windows command line
 --------------------

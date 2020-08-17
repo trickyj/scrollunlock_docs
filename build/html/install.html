@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Installation &#8212; scrollunlock 1.0 documentation</title>
+    <title>Install Docker &#8212; scrollunlock 1.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction to Python" href="python_quickstart.html" />
-    <link rel="prev" title="Welcome to scrollunlock’s documentation!" href="index.html" />
+    <link rel="next" title="Install Python" href="install2.html" />
+    <link rel="prev" title="Welcome to scrollunlock’s doc’s!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,28 +33,37 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>For our workshop, we will need a Python 3.8.1 interpreter. Below are some directions on how to check if you already have the interpreter and how to install it along with some other tools.</p>
-<div class="section" id="windows">
-<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
-<p>You can download Python for Windows directly from <a class="reference external" href="https://www.python.org/downloads/release/python-381/">python.org</a>.
-After downloading the file  <code class="docutils literal notranslate"><span class="pre">*.msi</span></code>, open it and follow the instructions.
-It is important to remember the path of installation – the directory – as we will need this information during the <a class="reference internal" href="#tools"><span class="std std-ref">installation of tools</span></a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Remember to check “Add Python 3.8.1 to PATH” when running the installer . This way you will be able to run Python form
-console by just writting <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
+  <div class="section" id="install-docker">
+<h1>Install Docker<a class="headerlink" href="#install-docker" title="Permalink to this headline">¶</a></h1>
+<p>I am using MAC machine so basically, I downloaded the .dmg package and installed it on my machine.
+you can download and install Docker from this link - (<a class="reference external" href="https://docs.docker.com/desktop/">https://docs.docker.com/desktop/</a>)</p>
+<div class="section" id="signup-on-docker-hub">
+<h2>Signup on Docker Hub<a class="headerlink" href="#signup-on-docker-hub" title="Permalink to this headline">¶</a></h2>
+<p>Sign up / Login on - <a class="reference external" href="https://hub.docker.com/">https://hub.docker.com/</a></p>
 </div>
-</div>
-<div class="section" id="linux-ubuntu-fedora-etc-or-mac">
-<h2>Linux (Ubuntu, Fedora, etc.) or Mac<a class="headerlink" href="#linux-ubuntu-fedora-etc-or-mac" title="Permalink to this headline">¶</a></h2>
-<p>In order to check our version of Python, enter the following in the command line:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ python --version
-Python <span class="m">3</span>.8.1
+<div class="section" id="demo-1">
+<h2>Demo 1<a class="headerlink" href="#demo-1" title="Permalink to this headline">¶</a></h2>
+<p>In this demo I am pulling the Ubuntu image from command line running the same.</p>
+<p>Command to pull the docker image:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">ubuntu</span>
 </pre></div>
 </div>
-<p>If the <code class="docutils literal notranslate"><span class="pre">python</span></code> command is not available or the wrong version appears:</p>
+<p>Command to Search for Images which you have pulled so far:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">images</span>
+</pre></div>
+</div>
+<p>Command to search docker containers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">search</span> <span class="n">ubuntu</span>
+</pre></div>
+</div>
+<p>Command to Run docker image:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="n">t</span> <span class="n">ubuntu</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+</pre></div>
+</div>
+<p>Command to search the running docker containers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">ps</span>
+</pre></div>
+</div>
 <div class="section" id="ubuntu">
 <h3>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h3>
 <p>Enter in the command line:</p>
@@ -81,11 +90,8 @@ A compiler and readline library will be required.</p>
 <p>Unofficially, we assume that the users of less popular (but not worse!) distributions
 will manage the task without any problem :).</p>
 </div>
-</div>
-<div class="section" id="tools">
-<span id="id1"></span><h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="windows-command-line">
-<h3>Windows command line<a class="headerlink" href="#windows-command-line" title="Permalink to this headline">¶</a></h3>
+<span id="tools"></span><h3>Windows command line<a class="headerlink" href="#windows-command-line" title="Permalink to this headline">¶</a></h3>
 <p>We will do most of our work on the command line. To activate the command line in Windows,
 press <code class="docutils literal notranslate"><span class="pre">Win+R</span></code>. In the open window, type <code class="docutils literal notranslate"><span class="pre">cmd</span></code> and click <code class="docutils literal notranslate"><span class="pre">OK</span></code>.
 A new window will appear with white text on a black background:</p>
@@ -264,27 +270,21 @@ from the console.</p>
 
 
 <h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Guide:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#windows">Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#linux-ubuntu-fedora-etc-or-mac">Linux (Ubuntu, Fedora, etc.) or Mac</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Install Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#signup-on-docker-hub">Signup on Docker Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#demo-1">Demo 1</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="python_quickstart.html">Introduction to Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_xmas_tree.html">Christmas Tree</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_dictionaries.html">Dictionaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_objects.html">Objects and classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_import.html">Multiple Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install2.html">Install Python</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Welcome to scrollunlock’s documentation!</a></li>
-      <li>Next: <a href="python_quickstart.html" title="next chapter">Introduction to Python</a></li>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to scrollunlock’s doc’s!</a></li>
+      <li>Next: <a href="install2.html" title="next chapter">Install Python</a></li>
   </ul></li>
 </ul>
 </div>

@@ -1,32 +1,41 @@
-============
-Installation
-============
 
-For our workshop, we will need a Python 3.8.1 interpreter. Below are some directions on how to check if you already have the interpreter and how to install it along with some other tools.
+==============
+Install Docker
+==============
 
-Windows
-=======
+I am using MAC machine so basically, I downloaded the .dmg package and installed it on my machine. 
+you can download and install Docker from this link - (https://docs.docker.com/desktop/)
 
-You can download Python for Windows directly from `python.org`_.
-After downloading the file  ``*.msi``, open it and follow the instructions.
-It is important to remember the path of installation – the directory – as we will need this information during the :ref:`installation of tools <tools>`.
+Signup on Docker Hub
+====================
 
-.. note::
-    Remember to check "Add Python 3.8.1 to PATH" when running the installer . This way you will be able to run Python form
-    console by just writting ``python``.
+Sign up / Login on - https://hub.docker.com/
 
+Demo 1
+======
 
-Linux (Ubuntu, Fedora, etc.) or Mac
-===================================
+In this demo I am pulling the Ubuntu image from command line running the same. 
 
-In order to check our version of Python, enter the following in the command line:
+Command to pull the docker image::
 
-.. code-block:: sh
+    docker pull ubuntu
 
-    $ python --version
-    Python 3.8.1
+Command to Search for Images which you have pulled so far::
 
-If the ``python`` command is not available or the wrong version appears:
+    docker images
+
+Command to search docker containers::
+
+    docker search ubuntu
+
+Command to Run docker image::
+
+    docker run -i -t ubuntu /bin/bash
+
+Command to search the running docker containers::
+
+    docker ps
+
 
 Ubuntu
 ------
@@ -61,9 +70,6 @@ will manage the task without any problem :).
 
 
 .. _tools:
-
-Tools
-=====
 
 Windows command line
 --------------------
