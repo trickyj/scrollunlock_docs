@@ -13,7 +13,7 @@ Docker basics -
 
    install
    install2
-   
+   python_basics
    
 
 Python Basics -
